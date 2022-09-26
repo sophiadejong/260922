@@ -1,0 +1,75 @@
+
+<html>
+<head>
+<style>
+    #increment, #decrement, #reset{
+ padding:10px 15px;
+ font-size:18px;
+ background: #56ccf2; 
+  background: -webkit-linear-gradient(to right, #56ccf2, #2f80ed); 
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+  color:#f1f1f1;
+  border:none;
+  margin:5px;
+}
+#main{
+  margin : 0 auto;
+  text-align:center;
+  padding:5% 10%;
+}
+#displayCounter{
+  font-size:100px;
+  font-family: impact;
+  
+}
+</style>
+</head>
+<body>
+     <div id="main">
+        <div id="displayCounter"></div><br>
+        <button id="increment"> + </button>
+        <button id="decrement"> - </button>
+        <button id="reset">Reset</button><br><br>
+     </div>
+<script>
+
+var productCounter={
+        count:0,									
+		incrementCounter:function(){
+      if(this.count<10){
+	      return this.count = this.count + 1;
+      }else{
+        alert("maximum limit reached, you can buy only 10 items");
+        return this.count;
+      }
+      
+	    },
+	    decrementCounter:function(){
+		  	if (this.count>0){
+		      return this.count = this.count - 1;
+		    } else {
+		      return this.count=0;
+		    }
+	    },
+	    resetCounter:function(){
+	      return this.count=0;
+	    }	
+
+};
+
+var displayCout = document.getElementById('displayCounter');
+displayCout.innerHTML=0;
+document.getElementById('increment').onclick=function(){
+displayCout.innerHTML=productCounter.incrementCounter();
+}
+document.getElementById('decrement').onclick=function(){
+displayCout.innerHTML = productCounter.decrementCounter();
+}
+document.getElementById('reset').onclick=function(){
+displayCout.innerHTML = productCounter.resetCounter();
+}
+
+</script>
+</body>
+</html>
+
